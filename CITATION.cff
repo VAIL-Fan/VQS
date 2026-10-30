@@ -1,0 +1,58 @@
+cff-version: 1.2.0
+message: "If you use this code or the VQS-4K benchmark, please cite the paper below."
+title: "Towards Visual Query Segmentation in the Wild"
+abstract: >-
+  VQS-4K, a large-scale benchmark for visual query segmentation, and VQ-SAM, a
+  SAM 2 based baseline using target-specific and background-distractor memory
+  with an adaptive memory generation module.
+authors:
+  - family-names: Fan
+    given-names: Bing
+  - family-names: Li
+    given-names: Minghao
+  - family-names: Zhang
+    given-names: Hanzhi
+  - family-names: Dong
+    given-names: Shaohua
+  - family-names: Mareedu
+    given-names: Naga Prudhvi
+  - family-names: Liu
+    given-names: Xiaoqiong
+  - family-names: Shi
+    given-names: Weishi
+  - family-names: Feng
+    given-names: Yunhe
+  - family-names: Huang
+    given-names: Yan
+  - family-names: Fan
+    given-names: Heng
+license: Apache-2.0
+repository-code: "https://github.com/VAIL-Fan/VQS"
+preferred-citation:
+  type: conference-paper
+  title: "Towards Visual Query Segmentation in the Wild"
+  year: 2026
+  collection-title: >-
+    Advances in Neural Information Processing Systems (NeurIPS), Datasets and
+    Benchmarks Track
+  authors:
+    - family-names: Fan
+      given-names: Bing
+    - family-names: Li
+      given-names: Minghao
+    - family-names: Zhang
+      given-names: Hanzhi
+    - family-names: Dong
+      given-names: Shaohua
+    - family-names: Mareedu
+      given-names: Naga Prudhvi
+    - family-names: Liu
+      given-names: Xiaoqiong
+    - family-names: Shi
+      given-names: Weishi
+    - family-names: Feng
+      given-names: Yunhe
+    - family-names: Huang
+      given-names: Yan
+    - family-names: Fan
+      given-names: Heng

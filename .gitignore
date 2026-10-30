@@ -1,0 +1,29 @@
+# 数据与权重(从 Hugging Face 获取,不入库)
+data/
+checkpoints/*
+!checkpoints/download_ckpts.sh
+*.pt
+*.pth
+*.ckpt
+
+# 训练与推理产物
+sam2_logs/
+outputs/
+test_outputs*/
+visualization_outputs*/
+*.log
+nohup.out
+events.out.tfevents.*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.eggs/
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
