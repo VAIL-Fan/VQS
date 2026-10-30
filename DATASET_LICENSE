@@ -1,0 +1,16 @@
+VQS-4K dataset license
+======================
+
+The VQS-4K benchmark (video frames, annotation masks, split files and metadata)
+is released under the Creative Commons Attribution-NonCommercial 4.0
+International license (CC BY-NC 4.0).
+
+    https://creativecommons.org/licenses/by-nc/4.0/
+
+All source videos were collected from YouTube under Creative Commons licenses
+and are redistributed for research purposes only. Should the license of any
+source video change, please contact the authors and we will take appropriate
+action.
+
+Note that this license covers the DATASET only. The code in this repository is
+released under the Apache 2.0 license (see LICENSE), inherited from SAM 2.
