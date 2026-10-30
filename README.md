@@ -8,7 +8,8 @@ Xiaoqiong Liu, Weishi Shi, Yunhe Feng, Yan Huang, Heng Fan†
 <br>Department of Computer Science and Engineering, University of North Texas
 <br><sub>\*Equal contribution &nbsp;&nbsp;†Corresponding author</sub>
 
-📦 **Dataset:** [`bf0820/VQS-4K` on Hugging Face](https://huggingface.co/datasets/bf0820/VQS-4K)
+📄 **Paper:** [arXiv:2603.08898](https://arxiv.org/pdf/2603.08898)
+&nbsp;&nbsp;|&nbsp;&nbsp;📦 **Dataset:** [`bf0820/VQS-4K` on Hugging Face](https://huggingface.co/datasets/bf0820/VQS-4K)
 
 ---
 
@@ -185,8 +186,11 @@ bash eval/scripts/run_metrics.sh \
 
 Always report **which split file and GT folder** you used — the two split protocols
 (`*_t-IoU.txt` and `*_t-IoU_by_class.txt`) are alternatives covering all 4,111 sequences, not
-nested subsets, and they give different numbers. Metric definitions and the mapping from the
-script's output keys to the names in the paper are in [`eval/METRICS.md`](eval/METRICS.md).
+nested subsets, and they give different numbers.
+
+Metric definitions, and the mapping from the script's output keys to the `mSTIoU` / `mTIoU` /
+`Rec` / `Succ` names used in the paper, are in [`eval/METRICS.md`](eval/METRICS.md). Run on the
+VQ-SAM predictions, this code reproduces every column of the main table above.
 
 ## Licenses
 
@@ -207,7 +211,9 @@ of a source video changes, please contact us and we will take appropriate action
                Feng, Yunhe and Huang, Yan and Fan, Heng},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)
                Datasets and Benchmarks Track},
-  year      = {2026}
+  year      = {2026},
+  eprint    = {2603.08898},
+  archivePrefix = {arXiv}
 }
 ```
 

@@ -387,11 +387,16 @@ def calculate_tracking_metrics(gt_masks_list: List[Dict[int, np.ndarray]],
         total_frames = 0
         
         for gt_masks, pred_masks in zip(gt_masks_list, pred_masks_list):
-            if not pred_masks:  # No prediction
-                total_frames += len(gt_masks)
+            # Every ground-truth frame counts towards the denominator. A frame the
+            # model never predicted is a miss, not an excluded sample -- scoring only
+            # the GT-prediction intersection would reward a model for skipping the
+            # frames it finds hard.
+            total_frames += len(gt_masks)
+            
+            if not pred_masks:  # No prediction for this video at all
                 continue
             
-            # Find common frames
+            # Frames we can actually score
             common_frames = set(gt_masks.keys()) & set(pred_masks.keys())
             
             for frame_num in common_frames:
@@ -407,8 +412,6 @@ def calculate_tracking_metrics(gt_masks_list: List[Dict[int, np.ndarray]],
                 
                 if frame_iou >= threshold:
                     total_accurate_frames += 1
-                
-                total_frames += 1
         
         recovery_rate = (total_accurate_frames / total_frames) * 100.0 if total_frames > 0 else 0.0
         results[f"Tracking % recovery @ IoU={threshold:.2f}"] = recovery_rate

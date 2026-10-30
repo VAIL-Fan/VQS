@@ -83,7 +83,7 @@ masks/
 - With one prediction per video (top-1), tAP/stAP reduce to a pass/fail rate at each IoU threshold.
 - AP values in `calculate_mask_metrics_simple.py` are returned as fractions in `[0, 1]`; Success and Recovery are percentages in `[0, 100]`.
 - The lower-level `metrics/metrics/` package follows the original VQ2D bbox evaluation logic; mask evaluation uses the simplified top-1 implementation in `calculate_mask_metrics_simple.py`, which is what all project `run_*.sh` scripts call.
-- **Recovery denominator:** `Tracking % recovery` is computed over frames that exist in **both** GT and prediction. GT-only frames without a matching prediction frame are not included in this denominator.
+- **Recovery denominator:** `Tracking % recovery` is computed over **every ground-truth frame**. A GT frame for which the method produced no prediction counts as a miss, not as an excluded sample.
 - **Query frames:** `00000.png` and `99999.png` are excluded from all metrics.
 
 ## Example result (official test split, 822 videos)
@@ -92,29 +92,34 @@ masks/
 Temporal AP @ IoU=0.50                  : 0.2676
 SpatioTemporal AP @ IoU=0.50            : 0.2384
 Success @ IoU=0.05                      : 55.9611
-Tracking % recovery @ IoU=0.50          : 63.4048
+Tracking % recovery @ IoU=0.50          : 43.5910
 t-IoU                                   : 0.2960
 st-IoU                                  : 0.2599
 ```
 
 ## Mapping to the names used in the paper
 
-The camera-ready tables use `mSTIoU` / `mTIoU` naming. Against the official 822-video test run
-quoted above, the correspondence is:
+The paper's tables use `mSTIoU` / `mTIoU` naming. The correspondence is:
 
-| Paper | Script output key |
-|---|---|
-| mTIoU | `t-IoU` |
-| mTIoU50 | `Temporal AP @ IoU=0.50` |
-| mTIoU75 | `Temporal AP @ IoU=0.75` |
-| mSTIoU | `st-IoU` |
-| mSTIoU50 | `SpatioTemporal AP @ IoU=0.50` |
-| mSTIoU75 | `SpatioTemporal AP @ IoU=0.75` |
+| Paper | Script output key | Scale |
+|---|---|---|
+| mSTIoU | `st-IoU` | x100 |
+| mSTIoU50 | `SpatioTemporal AP @ IoU=0.50` | x100 |
+| mSTIoU75 | `SpatioTemporal AP @ IoU=0.75` | x100 |
+| mTIoU | `t-IoU` | x100 |
+| mTIoU50 | `Temporal AP @ IoU=0.50` | x100 |
+| mTIoU75 | `Temporal AP @ IoU=0.75` | x100 |
+| Rec | `Tracking % recovery @ IoU=0.50` | as printed |
+| Succ | `Success @ IoU=0.20` | as printed |
 
-Paper values are these fractions x100.
+`Rec` is the percentage of ground-truth frames whose mask IoU exceeds 0.5; `Succ` is measured
+at an IoU of 0.2. Neither aggregates across thresholds -- the other thresholds the script
+prints are reported only in the appendix.
 
-> **`Succ` and `Rec` are not yet pinned down here.** The paper reports Succ = 42.1 and
-> Rec = 43.6 for VQ-SAM, while the run above prints `Success @ IoU=0.05` = 55.96 and
-> `Tracking % recovery @ IoU=0.50` = 63.40. The two reported numbers are therefore taken at
-> different thresholds, or aggregated across thresholds, than the single keys shown here.
-> Confirm the exact reduction before comparing against the paper's Succ/Rec columns.
+Running the above on the released VQ-SAM predictions and the released ground truth over
+`splits/test_t-IoU.txt` reproduces every column of the paper's main table:
+
+| | mSTIoU | mSTIoU50 | mSTIoU75 | mTIoU | mTIoU50 | mTIoU75 | Rec | Succ |
+|---|---|---|---|---|---|---|---|---|
+| Paper | 26.0 | 23.8 | 12.7 | 29.6 | 26.8 | 14.4 | 43.6 | 42.1 |
+| This code | 25.99 | 23.84 | 12.65 | 29.60 | 26.76 | 14.36 | 43.59 | 42.09 |
