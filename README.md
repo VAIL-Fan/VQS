@@ -165,13 +165,6 @@ reproduces all eight columns of the table above — see
 
 </details>
 
-## License
-
-**Code** — Apache 2.0, inherited from [SAM 2](https://github.com/facebookresearch/sam2) ([LICENSE](LICENSE)).
-<br>**Dataset** — CC BY-NC 4.0, research use only ([DATASET_LICENSE](DATASET_LICENSE)). Source
-videos were collected from YouTube under Creative Commons licenses; if a license changes,
-contact us and we will act accordingly.
-
 ## Citation
 
 ```bibtex
@@ -180,11 +173,8 @@ contact us and we will act accordingly.
   author    = {Fan, Bing and Li, Minghao and Zhang, Hanzhi and Dong, Shaohua and
                Mareedu, Naga Prudhvi and Liu, Xiaoqiong and Shi, Weishi and
                Feng, Yunhe and Huang, Yan and Fan, Heng},
-  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)
-               Datasets and Benchmarks Track},
-  year      = {2026},
-  eprint    = {2603.08898},
-  archivePrefix = {arXiv}
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2026}
 }
 ```
 
