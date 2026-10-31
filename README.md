@@ -2,7 +2,7 @@
 
 # Towards Visual Query Segmentation in the Wild
 
-**NeurIPS 2026** · Datasets &amp; Benchmarks Track
+**NeurIPS 2026**
 
 [![Paper](https://img.shields.io/badge/arXiv-2603.08898-b31b1b.svg)](https://arxiv.org/pdf/2603.08898)
 [![Dataset](https://img.shields.io/badge/🤗%20Dataset-VQS--4K-yellow.svg)](https://huggingface.co/datasets/bf0820/VQS-4K)
