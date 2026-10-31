@@ -12,7 +12,7 @@
 Bing Fan\*, Minghao Li\*, Hanzhi Zhang\*, Shaohua Dong, Naga Prudhvi Mareedu,<br>
 Xiaoqiong Liu, Weishi Shi, Yunhe Feng, Yan Huang, Heng Fan†
 
-University of North Texas &nbsp;·&nbsp; <sub>\*Equal contribution &nbsp; †Corresponding author</sub>
+University of North Texas <br> <sub>\*Equal contribution &nbsp; †Corresponding author</sub>
 
 <img src="assets/teaser.png" width="88%">
 
